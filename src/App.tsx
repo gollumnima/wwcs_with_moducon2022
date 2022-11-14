@@ -18,6 +18,9 @@ function App() {
             <span className="btn btn-ghost btn-sm rounded-btn">
               방명록
             </span>
+            <span className="btn btn-ghost btn-sm rounded-btn">
+              구름
+            </span>
           </div>
         </div>
       </div>

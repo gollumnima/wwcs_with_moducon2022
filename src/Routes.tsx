@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from './App';
 import { Community } from './components/Community';
-import { WordCloud } from './components/WordCloud';
+import { Cloud } from './components/Cloud';
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +16,6 @@ export const router = createBrowserRouter([
   },
   {
     path: '/result',
-    element: <WordCloud />,
+    element: <Cloud />,
   },
 ]);
