@@ -49,6 +49,8 @@
     ]
   },
   "devDependencies": {
+    "@types/d3": "^7.4.0",
+    "@types/d3-cloud": "^1.2.5",
     "eslint": "^8.27.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
