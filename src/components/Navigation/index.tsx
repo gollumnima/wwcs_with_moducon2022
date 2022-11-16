@@ -6,7 +6,7 @@ export const Navigation = () => (
       </span>
     </div>
     <div className="flex-1 px-2 mx-2">
-      <div className="items-stretch hidden lg:flex">
+      <div className="items-stretch lg:flex">
         <a href="/community">
           <span className="btn btn-ghost btn-sm rounded-btn">
             커뮤니티란?

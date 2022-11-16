@@ -9,7 +9,9 @@ type Props = {
 export const Layout = ({ children }: PropsWithChildren<Props>) => (
   <>
     <Navigation />
-    <Outlet />
-    {children}
+    <div className="px-2 mx-2">
+      {children}
+      <Outlet />
+    </div>
   </>
 );
