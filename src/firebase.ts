@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
-import { getFirestore } from 'firebase/firestore';
+import { collection, getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -15,3 +15,6 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
 export const db = getFirestore(app);
+
+const moduconDB = process.env.REACT_APP_FIRESTORE_DB_NAME ?? '';
+export const docRef = collection(db, moduconDB);
