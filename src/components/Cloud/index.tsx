@@ -1,4 +1,7 @@
 import WordCloud from 'react-d3-cloud';
+import { getDocs, query } from 'firebase/firestore';
+import { useEffect } from 'react';
+import { docRef } from '../../firebase';
 
 const data = [
   { text: 'Hey', value: 3 },
@@ -8,13 +11,20 @@ const data = [
   { text: 'duck', value: 10 },
 ];
 
-// TODO:
-// 입력폼 만들어서 파이어베이스에서 데이터 가져오기
-// 편하게 react-d3-cloud를 써볼까 결정하기
-// 동일한 텍스트의 경우 value가 하나씩 증가하도록 만들기
-
 export const Cloud = () => {
-  console.log('결과');
+  const getWords = async () => {
+    const q = await query(docRef);
+    const result = await getDocs(q);
+    return result.docs.map((doc:any) => {
+      console.log(doc.data(), 'ddd');
+      // TODO: 동일한 값이면 value 하나씩 증가하게 바꾸기
+      return doc.data();
+    });
+  };
+
+  useEffect(() => {
+    getWords();
+  }, []);
 
   return (
     <WordCloud

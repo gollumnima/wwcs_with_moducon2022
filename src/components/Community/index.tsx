@@ -1,20 +1,21 @@
 import { ChangeEvent, useState } from 'react';
-import { collection, addDoc } from 'firebase/firestore';
-import { db } from '~/firebase';
-// TODO: 경로문제 해결하고, DB에 값 제대로 들어오나 확인하기
+import { addDoc } from 'firebase/firestore';
+import { docRef } from '../../firebase';
 
 export const Community = () => {
   const [value, setValue] = useState('');
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
-
   const onSubmit = async () => {
     try {
-      const moduconDB = process.env.REACT_APP_FIRESTORE_DB_NAME ?? '';
-      await addDoc(collection(db, moduconDB), {
+      if (!value) return undefined;
+      await addDoc(docRef, {
         word: value,
+        timestamp: Date.now(),
       });
+      setValue('');
+      // Modal 만들어서 띄우기
       return undefined;
     } catch (err) {
       return (err as Error).message;
@@ -36,7 +37,7 @@ export const Community = () => {
       </label>
       <button
         type="button"
-        className="btn btn-primary mt-6"
+        className="btn btn-neutral mt-6"
         onClick={onSubmit}
       >
         <span className="text-white">
