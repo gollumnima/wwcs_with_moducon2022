@@ -1,7 +1,7 @@
 import WordCloud from 'react-d3-cloud';
 import { getDocs, query } from 'firebase/firestore';
 import { useEffect } from 'react';
-import { docRef } from '../../firebase';
+import { cloudRef } from '../../firebase';
 
 const data = [
   { text: 'Hey', value: 3 },
@@ -13,7 +13,7 @@ const data = [
 
 export const Cloud = () => {
   const getWords = async () => {
-    const q = await query(docRef);
+    const q = await query(cloudRef);
     const result = await getDocs(q);
     return result.docs.map((doc:any) => {
       console.log(doc.data(), 'ddd');

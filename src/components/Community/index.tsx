@@ -1,16 +1,17 @@
 import { ChangeEvent, useState } from 'react';
 import { addDoc } from 'firebase/firestore';
-import { docRef } from '../../firebase';
+import { cloudRef } from '../../firebase';
+import { Input } from '../Input';
 
 export const Community = () => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState<string>('');
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
   const onSubmit = async () => {
     try {
       if (!value) return undefined;
-      await addDoc(docRef, {
+      await addDoc(cloudRef, {
         word: value,
         timestamp: Date.now(),
       });
@@ -25,16 +26,12 @@ export const Community = () => {
   return (
     <div className="flex flex-col">
       <span className="label-text text-lg my-2 mx-2">여러분이 생각하는 커뮤니티란 무엇인가요?</span>
-      <label className="label" htmlFor="community_value">
-        <input
-          type="text"
-          id="community_value"
-          className="input input-bordered input-secondery w-full"
-          onChange={onChange}
-          value={value}
-          placeholder="커뮤니티란?"
-        />
-      </label>
+      <Input
+        label="community_value"
+        onChange={onChange}
+        value={value}
+        placeholder="커뮤니티란?"
+      />
       <button
         type="button"
         className="btn btn-neutral mt-6"
