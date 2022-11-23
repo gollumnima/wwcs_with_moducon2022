@@ -16,5 +16,8 @@ export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
 export const db = getFirestore(app);
 
-const moduconDB = process.env.REACT_APP_FIRESTORE_DB_NAME ?? '';
-export const docRef = collection(db, moduconDB);
+const cloudDB = process.env.REACT_APP_FIRESTORE_CLOUD_DB_NAME ?? '';
+const footPrintDB = process.env.REACT_APP_FIRESTORE_FOOTPRINT_DB_NAME ?? '';
+
+export const cloudRef = collection(db, cloudDB);
+export const footPrintRef = collection(db, footPrintDB);
