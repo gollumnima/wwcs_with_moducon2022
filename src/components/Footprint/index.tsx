@@ -1,22 +1,12 @@
 import {
   ChangeEvent, useEffect, useReducer, useState,
 } from 'react';
-import {
-  addDoc, getDocs,
-} from 'firebase/firestore';
+import { addDoc, getDocs } from 'firebase/firestore';
 import { formatDate } from 'src/utils/index';
 import { footPrintRef } from '../../firebase';
 import { Input } from '../Input';
 import { Modal } from '../Modal/index';
-
-interface Users {
-  username: string;
-  content: string;
-}
-
-interface Prints extends Users {
-  timestamp: number;
-}
+import { Prints, Users } from './types';
 
 export const Footprint = () => {
   const useReducerState = <State extends object>(initialState: State) => {
@@ -78,6 +68,7 @@ export const Footprint = () => {
         id: doc.id,
       });
     });
+
     setPrints(document);
   };
 
