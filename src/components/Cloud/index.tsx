@@ -1,25 +1,23 @@
+import { useEffect, useState } from 'react';
 import WordCloud from 'react-d3-cloud';
-import { getDocs, query } from 'firebase/firestore';
-import { useEffect } from 'react';
+import { getDocs } from 'firebase/firestore';
+import { Words } from './types';
 import { cloudRef } from '../../firebase';
 
-const data = [
-  { text: 'Hey', value: 3 },
-  { text: 'lol', value: 5 },
-  { text: 'first impression', value: 8 },
-  { text: 'very cool', value: 10 },
-  { text: 'duck', value: 10 },
-];
-
 export const Cloud = () => {
+  const [words, setWords] = useState<Words[]>([]);
   const getWords = async () => {
-    const q = await query(cloudRef);
-    const result = await getDocs(q);
-    return result.docs.map((doc:any) => {
-      console.log(doc.data(), 'ddd');
-      // TODO: 동일한 값이면 value 하나씩 증가하게 바꾸기
-      return doc.data();
+    const querySnapshot = await getDocs(cloudRef);
+    // eslint-disable-next-line prefer-const
+    let document: any[] = [];
+    querySnapshot.forEach((doc) => {
+      document.push({
+        id: doc.id,
+        text: doc.data().word,
+        value: 10, // TODO: 동적으로 바꾸기
+      });
     });
+    setWords(document);
   };
 
   useEffect(() => {
@@ -27,19 +25,21 @@ export const Cloud = () => {
   }, []);
 
   return (
-    <WordCloud
-      data={data}
-      width={500}
-      height={500}
-      font="Times"
-      fontStyle="italic"
-      fontWeight="bold"
-      fontSize={(word) => Math.log2(word.value) * 5}
-      spiral="rectangular"
-      rotate={(word) => word.value % 360}
-      padding={5}
-      random={Math.random}
-      // fill={(d, i) => schemeCategory10ScaleOrdinal(i)}
-    />
+    <>
+      <span>키워드는 등록할 수 있는데 아직 동적으로 키워드에 따라 변화하는것은 수정예정!</span>
+      <WordCloud
+        data={words}
+        width={500}
+        height={500}
+        font="Times"
+        fontStyle="italic"
+        fontWeight="bold"
+        fontSize={(word) => Math.log2(word.value) * 5}
+        spiral="rectangular"
+        rotate={(word) => word.value % 360}
+        padding={5}
+        random={Math.random}
+      />
+    </>
   );
 };
