@@ -25,6 +25,5 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "**/*.ts", "**/*.tsx"
-  ]
+    "**/*.ts", "**/*.tsx", "src/types/index.d.ts" ]
 }
