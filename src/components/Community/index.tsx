@@ -34,7 +34,7 @@ export const Community = () => {
       />
       <button
         type="button"
-        className="btn btn-neutral mt-6"
+        className="btn rounded-lg mt-6"
         onClick={onSubmit}
       >
         <span className="text-white">
