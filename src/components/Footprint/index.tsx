@@ -68,7 +68,7 @@ export const Footprint = () => {
         id: doc.id,
       });
     });
-
+    document.sort((a, b) => b.timestamp - a.timestamp);
     setPrints(document);
   };
 
