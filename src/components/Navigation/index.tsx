@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import { usePathname } from 'src/utils/usePathname';
+import { useColors } from 'src/utils/useColors';
 
 export const Navigation = () => {
-  const { mainColor } = usePathname();
+  const { mainColor } = useColors();
   return (
-    <div className={`navbar mb-2 shadow-lg bg-${mainColor} text-${mainColor}-content`}>
+    <div className={`navbar mb-2 shadow-lg ${mainColor.bg} ${mainColor.text}`}>
       <div className="flex-none px-2 mx-2">
         <Link to="/">
           <span className="text-lg font-bold">
