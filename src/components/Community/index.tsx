@@ -44,7 +44,7 @@ export const Community = () => {
           label="community_value"
           onChange={onChange}
           value={value}
-          placeholder="커뮤니티란?"
+          placeholder="커뮤니티를 한 단어로 표현해주세요!"
         />
         <button
           type="button"

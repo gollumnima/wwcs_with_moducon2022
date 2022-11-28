@@ -1,15 +1,12 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { addDoc, getDocs } from 'firebase/firestore';
 import { formatDate, useReducerState } from 'src/utils/index';
-import { useColors } from 'src/utils/useColors';
 import { footPrintRef } from '../../firebase';
 import { Input } from '../Input';
 import { Modal } from '../Modal/index';
 import { Prints, Users } from './types';
 
 export const Footprint = () => {
-  const { mainColor } = useColors();
-
   const [state, setState] = useReducerState<Users>({
     username: '',
     content: '',
@@ -95,7 +92,7 @@ export const Footprint = () => {
         />
         <button
           type="button"
-          className={`btn rounded-lg mt-6 btn-primary ${mainColor.bg}`}
+          className="btn rounded-lg mt-6 btn-primary bg-primary"
           onClick={onSubmit}
         >
           <span className="text-white">
@@ -104,7 +101,7 @@ export const Footprint = () => {
         </button>
         {
         prints.map((print) => (
-          <div className="mockup-window bg-base-300 mt-5" key={print.timestamp}>
+          <div className="mockup-window bg-stone-200 mt-5" key={print.timestamp}>
             <div className="flex flex-col justify-center px-8 py-4 bg-base-200">
               <div className="flex flex-row place-content-between items-center">
                 <span className="font-semibold text-lg">{print.username}</span>
