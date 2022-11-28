@@ -1,21 +1,14 @@
-import {
-  ChangeEvent, useEffect, useReducer, useState,
-} from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { addDoc, getDocs } from 'firebase/firestore';
-import { formatDate } from 'src/utils/index';
+import { formatDate, useReducerState } from 'src/utils/index';
+import { useColors } from 'src/utils/useColors';
 import { footPrintRef } from '../../firebase';
 import { Input } from '../Input';
 import { Modal } from '../Modal/index';
 import { Prints, Users } from './types';
 
 export const Footprint = () => {
-  const useReducerState = <State extends object>(initialState: State) => {
-    const reducer = (prev: State, next: Partial<State>): State => ({
-      ...prev,
-      ...next,
-    });
-    return useReducer(reducer, initialState);
-  };
+  const { mainColor } = useColors();
 
   const [state, setState] = useReducerState<Users>({
     username: '',
@@ -102,7 +95,7 @@ export const Footprint = () => {
         />
         <button
           type="button"
-          className="btn rounded-lg mt-6 btn-primary"
+          className={`btn rounded-lg mt-6 btn-primary ${mainColor.bg}`}
           onClick={onSubmit}
         >
           <span className="text-white">
