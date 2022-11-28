@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Main } from './Main';
+import { Main } from './components/Main';
 import { Community } from './components/Community';
 import { Cloud } from './components/Cloud';
 import { Layout } from './components/Layout';
