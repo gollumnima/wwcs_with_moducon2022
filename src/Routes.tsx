@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import App from './App';
+import { Main } from './Main';
 import { Community } from './components/Community';
 import { Cloud } from './components/Cloud';
 import { Layout } from './components/Layout';
@@ -12,7 +12,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <App />,
+        element: <Main />,
       },
       {
         path: 'community',
