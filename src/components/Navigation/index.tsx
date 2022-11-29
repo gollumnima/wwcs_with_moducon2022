@@ -21,7 +21,7 @@ export const Navigation = () => {
           </a>
           <a href="/footprint">
             <span className={`btn btn-ghost btn-sm rounded-btn ${pathname === '/footprint' && 'text-primary-content'}`}>
-              🐾 발도장
+              🦶 발도장
             </span>
           </a>
           <a href="/result">
