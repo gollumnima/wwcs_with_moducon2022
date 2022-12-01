@@ -1,9 +1,10 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { addDoc, getDocs } from 'firebase/firestore';
 import { formatDate, useReducerState } from 'src/utils/index';
+import { Input } from 'src/components/Input';
+import { Modal } from 'src/components/Modal/index';
+import { Meta } from 'src/components/Meta';
 import { footPrintRef } from '../../firebase';
-import { Input } from '../Input';
-import { Modal } from '../Modal/index';
 import { Prints, Users } from './types';
 
 export const Footprint = () => {
@@ -69,6 +70,7 @@ export const Footprint = () => {
 
   return (
     <>
+      <Meta title="위민후코드 서울 X 모두콘 2022: 방명록 혹은 모두콘 후기를 남겨보세요!" />
       {isOpen && (
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         {message}

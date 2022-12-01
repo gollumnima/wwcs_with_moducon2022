@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Main } from './components/Main';
-import { Community } from './components/Community';
-import { Cloud } from './components/Cloud';
+import { Main } from './pages/Main';
+import { Community } from './pages/Community';
+import { Cloud } from './pages/Cloud';
 import { Layout } from './components/Layout';
-import { Footprint } from './components/Footprint';
+import { Footprint } from './pages/Footprint';
 
 export const router = createBrowserRouter([
   {
