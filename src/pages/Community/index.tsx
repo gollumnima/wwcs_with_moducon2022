@@ -42,6 +42,7 @@ export const Community = () => {
       )}
       <div className="flex flex-col">
         <span className="label-text text-lg my-2 mx-2">여러분이 생각하는 커뮤니티란 무엇인가요?</span>
+        <span className="label-text text-sm mx-2 text-primary">ex) 사랑, 가족, 집, 우정</span>
         <Input
           label="community_value"
           onChange={onChange}
