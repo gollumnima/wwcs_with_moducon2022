@@ -15,7 +15,7 @@ export const Modal = ({ isOpen, onClose, children }: PropsWithChildren<Props>) =
   return (
     <ReactPortal wrapperId="react-portal-modal-container">
       <div ref={modalRef} className={modalContainer}>
-        <div className={`${modalContent} border-primary border-solid rounded-md px-4 mx-4 bg-primary`}>
+        <div className={`${modalContent} border-primary border-solid rounded-md px-4 mx-4 bg-primary w-80 sm:w-96`}>
           <div className="flex flex-col">
             <span className="text-white items-center my-9">{children}</span>
             <button type="button" className="btn btn-secondary mt-4" onClick={onClose}>닫기</button>
