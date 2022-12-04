@@ -1,5 +1,6 @@
 import { useReducer } from 'react';
 import { COLOR_MAP } from '../constant';
+import { Words } from '../pages/Cloud/types';
 import { Paths } from '../types/base';
 
 export const formatDate = (timestamp:number) => new Intl.DateTimeFormat(
@@ -16,3 +17,7 @@ export const useReducerState = <State extends object>(initialState: State) => {
   });
   return useReducer(reducer, initialState);
 };
+
+export const getUniqueListByTextKeyword = (arr: Words[]) => [
+  ...new Map(arr.map((item: Words) => [item.text, item]))
+    .values()];
