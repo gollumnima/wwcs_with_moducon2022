@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 export const Footer = () => (
-  <footer className="absolute bottom-0 p-6 footer bg-neutral text-neutral-content">
+  <footer className="absolute sm:fixed bottom-0 p-6 footer bg-neutral text-neutral-content">
     <div className="w-full sm:max-w-2xl sm:mx-auto sm:flex sm:justify-between">
       <div>
         <img className="w-40" src="/images/seoul_t_b.jpg" alt="위민후코드 서울 로고" />
