@@ -8,13 +8,12 @@ type Props = {
 };
 
 export const Layout = ({ children }: PropsWithChildren<Props>) => (
-  <>
+  <div className="relative h-full">
     <Navigation />
-    {/* // 80 96 */}
     <div className="px-2 max-w-2xl mx-auto pt-28 pb-80 sm:pb-64">
       {children}
       <Outlet />
     </div>
     <Footer />
-  </>
+  </div>
 );
