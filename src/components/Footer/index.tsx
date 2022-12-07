@@ -6,7 +6,8 @@ export const Footer = () => (
         <img className="w-40" src="/images/seoul_t_b.jpg" alt="위민후코드 서울 로고" />
         <br />
         <p className="my-2">
-          만든이: 김두리
+          만든이:&nbsp;
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-secondary to-accent font-bold">⭐️김두리⭐️</span>
           <br />
           오류 신고 및 문의는 아래의 이메일로 부탁드립니다.
           <br />
