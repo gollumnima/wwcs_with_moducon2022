@@ -1,0 +1,9 @@
+.listWithCommunity::before {
+  content: "😎 ";
+}
+.listWithFootPrint::before {
+  content: "🦶 ";
+}
+.listWithCloud::before {
+  content: "☁️ ";
+}

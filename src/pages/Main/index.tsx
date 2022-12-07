@@ -1,6 +1,8 @@
 import { Meta } from 'src/components/Meta';
-import { useColors } from '../utils/useColors';
+import { useColors } from '../../utils/useColors';
+import styles from './main.module.css';
 
+const { listWithCommunity, listWithFootPrint, listWithCloud } = styles;
 export const Main = () => {
   const { mainColor } = useColors();
   return (
@@ -15,23 +17,24 @@ export const Main = () => {
           <span>
             위의 메뉴를 보면 커뮤니티, 발도장, 구름이라는 메뉴가 있습니다.
           </span>
-          <ul className="list-disc list-inside mt-4">
-            <li>
+          <ul className="list-none list-inside mt-4">
+            <li className={listWithCommunity}>
               <a className={`font-semibold cursor-pointer ${mainColor.text} ${mainColor.bg} px-1 mr-1`} href="/community">커뮤니티</a>
               라는 글자를 클릭하면 해당 페이지에서 본인이 생각하는
               커뮤니티를 한 단어로 표현할 수 있습니다.
             </li>
-            <li>
+            <li className={listWithFootPrint}>
               <a className={`font-semibold cursor-pointer ${mainColor.text} ${mainColor.bg} px-1 mr-1`} href="/footprint">발자국</a>
               이라는 글자를 클릭하면 해당 페이지에 위민후코드 서울에 전하고 싶은 말 혹은 컨퍼런스 이후 소감을 남길 수 있습니다.
             </li>
-            <li>
+            <li className={listWithCloud}>
               <a className={`font-semibold cursor-pointer ${mainColor.text} ${mainColor.bg} px-1 mr-1`} href="/result">구름</a>
               이라는 글자를 클릭하면 해당 페이지에 커뮤니티 페이지에서 남겼던 단어들을 조합한 구름을 볼 수 있습니다.
             </li>
           </ul>
         </div>
         <h1 className="text-2xl">위민후코드 서울이란?</h1>
+        <img className="my-4" src="/images/wwcs_bg.jpeg" alt="위민후코드 서울 단체사진" />
         <div className="mt-1">
           <p>
             위민후코드 서울은 기술분야에 종사하는 여성의 커리어 발전에 영감을 불어넣기 위해 만들어진 글로벌 비영리 기구

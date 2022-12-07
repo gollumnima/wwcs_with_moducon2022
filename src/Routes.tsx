@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Main } from './pages/Main';
 import { Community } from './pages/Community';
 import { Cloud } from './pages/Cloud';
 import { Layout } from './components/Layout';
 import { Footprint } from './pages/Footprint';
+import { Main } from './pages/Main';
 
 export const router = createBrowserRouter([
   {
