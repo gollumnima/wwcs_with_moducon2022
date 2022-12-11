@@ -43,6 +43,7 @@ export const Main = () => {
           <ul className="list-disc list-inside mt-4 mb-8">
             <li className="underline decoration-wavy decoration-primary my-1"><a href="https://www.facebook.com/groups/wwcodeseoul" target="_blank" rel="noreferrer">Facebook Group 팔로우 하러 가기</a></li>
             <li className="underline decoration-wavy decoration-primary my-1"><a href="https://twitter.com/WWCodeSeoul" target="_blank" rel="noreferrer">Twitter 팔로우 하러 가기</a></li>
+            <li className="underline decoration-wavy decoration-primary my-1"><a href="https://docs.google.com/forms/d/e/1FAIpQLScnNmJZ0NOq0OZfNRcGekrdV0Upem6vmaBJFizX9oPg93B7_w/viewform" target="_blank" rel="noreferrer">위민후코드 서울 2023 신규 운영진 모집 알림 받기</a></li>
           </ul>
         </div>
       </div>
