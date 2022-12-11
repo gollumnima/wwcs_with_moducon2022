@@ -28,7 +28,7 @@ export const Footprint = () => {
   const onSubmit = async () => {
     if (!username || !content) {
       setIsOpen(true);
-      setMessage('모든 입력칸을 채워주세요~ 🥹');
+      setMessage('모든 입력칸을 채워주세요~ 😭');
       return undefined;
     }
     try {

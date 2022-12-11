@@ -20,16 +20,15 @@ export const Main = () => {
           <ul className="list-none list-inside mt-4">
             <li className={listWithCommunity}>
               <a className={`font-semibold cursor-pointer ${mainColor.text} ${mainColor.bg} px-1 mr-1`} href="/community">커뮤니티</a>
-              라는 글자를 클릭하면 해당 페이지에서 본인이 생각하는
-              커뮤니티를 한 단어로 표현할 수 있습니다.
+              : 본인이 생각하는 커뮤니티를 한 단어로 표현할 수 있습니다.
             </li>
             <li className={listWithFootPrint}>
-              <a className={`font-semibold cursor-pointer ${mainColor.text} ${mainColor.bg} px-1 mr-1`} href="/footprint">발자국</a>
-              이라는 글자를 클릭하면 해당 페이지에 위민후코드 서울에 전하고 싶은 말 혹은 컨퍼런스 이후 소감을 남길 수 있습니다.
+              <a className={`font-semibold cursor-pointer ${mainColor.text} ${mainColor.bg} px-1 mr-1`} href="/footprint">발도장</a>
+              : 위민후코드 서울에 전하고 싶은 말 혹은 컨퍼런스 이후 소감을 남길 수 있습니다.
             </li>
             <li className={listWithCloud}>
               <a className={`font-semibold cursor-pointer ${mainColor.text} ${mainColor.bg} px-1 mr-1`} href="/result">구름</a>
-              이라는 글자를 클릭하면 해당 페이지에 커뮤니티 페이지에서 남겼던 단어들을 조합한 구름을 볼 수 있습니다.
+              : 커뮤니티에 대한 생각을 조합한 구름(Word Cloud)을 볼 수 있습니다.
             </li>
           </ul>
         </div>

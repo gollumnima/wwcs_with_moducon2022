@@ -15,7 +15,7 @@ export const Community = () => {
   const onSubmit = async () => {
     if (!value) {
       setIsOpen(true);
-      setMessage('입력칸을 채워주세요~ 🥹');
+      setMessage('입력칸을 채워주세요~ 😭');
       return undefined;
     }
     try {
