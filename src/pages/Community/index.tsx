@@ -2,7 +2,6 @@ import { ChangeEvent, useState } from 'react';
 import { addDoc } from 'firebase/firestore';
 import { Input } from 'src/components/Input';
 import { Modal } from 'src/components/Modal';
-import { Meta } from 'src/components/Meta';
 import { cloudRef } from '../../firebase';
 
 export const Community = () => {
@@ -34,7 +33,6 @@ export const Community = () => {
 
   return (
     <>
-      <Meta title="위민후코드 서울 X 모두콘 2022: 커뮤니티를 한 단어로 표현해보세요!" />
       {isOpen && (
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         {message}
