@@ -1,9 +1,56 @@
+import { useEffect } from 'react';
+import { useReducerState } from 'src/utils/index';
 import { useColors } from '../../utils/useColors';
 import styles from './main.module.css';
+import { CustomCSS } from './types';
 
 const { listWithCommunity, listWithFootPrint, listWithCloud } = styles;
 export const Main = () => {
   const { mainColor } = useColors();
+  const [state, setState] = useReducerState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const countDownDate = new Date('2022-12-15 14:30:00').getTime();
+      const distance = countDownDate - now;
+      const isOver = now > countDownDate;
+
+      if (isOver) {
+        setState({
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0,
+        });
+        clearInterval(interval);
+        return undefined;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      return setState({
+        days,
+        hours,
+        minutes,
+        seconds,
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const {
+    days, hours, minutes, seconds,
+  } = state;
+
   return (
     <div className="mx-5 mt-5">
       <h1 className="text-2xl">안녕하세요 MODU들!</h1>
@@ -11,6 +58,33 @@ export const Main = () => {
         <span>
           이 페이지는 모두콘2022를 위해 만든 페이지입니다.&nbsp;
         </span>
+        <h1 className="mt-2">😎위민후코드 서울 세션까지 남은 시간😎</h1>
+        <div className="grid grid-flow-col gap-4 text-center auto-cols-max my-4">
+          <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content place-items-center">
+            <span className="font-mono text-4xl countdown">
+              <span style={{ '--value': days } as CustomCSS} />
+            </span>
+            days
+          </div>
+          <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content place-items-center">
+            <span className="font-mono text-4xl countdown">
+              <span style={{ '--value': hours } as CustomCSS} />
+            </span>
+            hours
+          </div>
+          <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content place-items-center">
+            <span className="font-mono text-4xl countdown">
+              <span style={{ '--value': minutes } as CustomCSS} />
+            </span>
+            minutes
+          </div>
+          <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content place-items-center">
+            <span className="font-mono text-4xl countdown">
+              <span style={{ '--value': seconds } as CustomCSS} />
+            </span>
+            seconds
+          </div>
+        </div>
         <span>
           위의 메뉴를 보면 커뮤니티, 발도장, 구름이라는 메뉴가 있습니다.
         </span>
