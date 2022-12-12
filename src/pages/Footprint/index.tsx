@@ -1,4 +1,6 @@
+/* eslint-disable no-undef */
 import { ChangeEvent, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { addDoc, getDocs } from 'firebase/firestore';
 import { formatDate, useReducerState } from 'src/utils/index';
 import { Input } from 'src/components/Input';
@@ -7,6 +9,7 @@ import { footPrintRef } from '../../firebase';
 import { Prints, Users } from './types';
 
 export const Footprint = () => {
+  const navigate = useNavigate();
   const [state, setState] = useReducerState<Users>({
     username: '',
     content: '',
@@ -62,6 +65,11 @@ export const Footprint = () => {
     setPrints(document);
   };
 
+  const onClose = () => {
+    setIsOpen(false);
+    navigate(0);
+  };
+
   useEffect(() => {
     getFootPrint();
     return () => setMessage('');
@@ -70,7 +78,7 @@ export const Footprint = () => {
   return (
     <>
       {isOpen && (
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+      <Modal isOpen={isOpen} onClose={onClose}>
         {message}
       </Modal>
       )}
