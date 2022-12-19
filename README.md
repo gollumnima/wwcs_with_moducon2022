@@ -8,4 +8,4 @@
 
 !['wwcs-moducon2-image'](https://github.com/gollumnima/wwcs_with_moducon2022/blob/main/public/images/moducon2.png)
 
-!['wwcs-moducon3-image'](https://github.com/gollumnima/wwcs_with_moducon2022/blob/main/public/images/moducon3.png)
+!['wwcs-moducon3-image'](https://github.com/gollumnima/wwcs_with_moducon2022/blob/main/public/images/moducon3.jpg)
